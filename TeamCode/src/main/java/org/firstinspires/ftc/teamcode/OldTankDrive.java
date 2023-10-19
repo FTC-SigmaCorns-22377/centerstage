@@ -50,7 +50,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Config
-public final class TankDrive {
+public final class OldTankDrive {
     public static class Params {
         // drive model parameters
         public double inPerTick = 0;
@@ -173,7 +173,7 @@ public final class TankDrive {
         }
     }
 
-    public TankDrive(HardwareMap hardwareMap, Pose2d pose) {
+    public OldTankDrive(HardwareMap hardwareMap, Pose2d pose) {
         this.pose = pose;
 
         LynxFirmware.throwIfModulesAreOutdated(hardwareMap);
@@ -200,7 +200,7 @@ public final class TankDrive {
 
         voltageSensor = hardwareMap.voltageSensor.iterator().next();
 
-        localizer = new TankDrive.DriveLocalizer();
+        localizer = new OldTankDrive.DriveLocalizer();
 
         FlightRecorder.write("TANK_PARAMS", PARAMS);
     }
