@@ -14,7 +14,7 @@ height = 720
 fx = cam_matrix[0, 0]
 fy = cam_matrix[1, 1]
 
-# Calculating fields of view
+# Calculating fields of view (in degrees)
 horizontal_fov = math.degrees(2 * math.atan(width / (2 * fx)))
 vertical_fov = math.degrees(2 * math.atan(height / (2 * fy)))
 
