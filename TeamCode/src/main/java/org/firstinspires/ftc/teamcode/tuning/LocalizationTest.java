@@ -2,12 +2,11 @@ package org.firstinspires.ftc.teamcode.tuning;
 
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.PoseVelocity2d;
-import com.acmerobotics.roadrunner.Twist2d;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
-import org.firstinspires.ftc.teamcode.TankDrive;
+import org.firstinspires.ftc.teamcode.OldTankDrive;
 
 public class LocalizationTest extends LinearOpMode {
     @Override
@@ -33,8 +32,8 @@ public class LocalizationTest extends LinearOpMode {
                 telemetry.addData("heading (deg)", Math.toDegrees(drive.pose.heading.toDouble()));
                 telemetry.update();
             }
-        } else if (TuningOpModes.DRIVE_CLASS.equals(TankDrive.class)) {
-            TankDrive drive = new TankDrive(hardwareMap, new Pose2d(0, 0, 0));
+        } else if (TuningOpModes.DRIVE_CLASS.equals(OldTankDrive.class)) {
+            OldTankDrive drive = new OldTankDrive(hardwareMap, new Pose2d(0, 0, 0));
 
             waitForStart();
 
