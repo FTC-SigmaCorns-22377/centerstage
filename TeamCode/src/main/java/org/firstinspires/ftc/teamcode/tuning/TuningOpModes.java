@@ -23,7 +23,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpModeRegistrar;
 
 import org.firstinspires.ftc.robotcore.internal.opmode.OpModeMeta;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
-import org.firstinspires.ftc.teamcode.OldTankDrive;
+import org.firstinspires.ftc.teamcode.TankDrive;
 import org.firstinspires.ftc.teamcode.ThreeDeadWheelLocalizer;
 import org.firstinspires.ftc.teamcode.TwoDeadWheelLocalizer;
 
@@ -104,14 +104,14 @@ public final class TuningOpModes {
                                 MecanumDrive.PARAMS.kA / MecanumDrive.PARAMS.inPerTick)
                 );
             };
-        } else if (DRIVE_CLASS.equals(OldTankDrive.class)) {
+        } else if (DRIVE_CLASS.equals(TankDrive.class)) {
             dvf = hardwareMap -> {
-                OldTankDrive td = new OldTankDrive(hardwareMap, new Pose2d(0, 0, 0));
+                TankDrive td = new TankDrive(hardwareMap, new Pose2d(0, 0, 0));
 
                 List<Encoder> leftEncs = new ArrayList<>(), rightEncs = new ArrayList<>();
                 List<Encoder> parEncs = new ArrayList<>(), perpEncs = new ArrayList<>();
-                if (td.localizer instanceof OldTankDrive.DriveLocalizer) {
-                    OldTankDrive.DriveLocalizer dl = (OldTankDrive.DriveLocalizer) td.localizer;
+                if (td.localizer instanceof TankDrive.DriveLocalizer) {
+                    TankDrive.DriveLocalizer dl = (TankDrive.DriveLocalizer) td.localizer;
                     leftEncs.addAll(dl.leftEncs);
                     rightEncs.addAll(dl.rightEncs);
                 } else if (td.localizer instanceof ThreeDeadWheelLocalizer) {
@@ -129,10 +129,10 @@ public final class TuningOpModes {
 
                 return new DriveView(
                     DriveType.TANK,
-                        OldTankDrive.PARAMS.inPerTick,
-                        OldTankDrive.PARAMS.maxWheelVel,
-                        OldTankDrive.PARAMS.minProfileAccel,
-                        OldTankDrive.PARAMS.maxProfileAccel,
+                        TankDrive.PARAMS.inPerTick,
+                        TankDrive.PARAMS.maxWheelVel,
+                        TankDrive.PARAMS.minProfileAccel,
+                        TankDrive.PARAMS.maxProfileAccel,
                         hardwareMap.getAll(LynxModule.class),
                         td.leftMotors,
                         td.rightMotors,
