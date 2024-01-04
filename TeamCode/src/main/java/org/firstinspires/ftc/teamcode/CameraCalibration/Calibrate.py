@@ -15,7 +15,7 @@ object_coords = np.zeros((1, board_dims[0] * board_dims[1], 3), np.float32)
 object_coords[0, :, :2] = np.mgrid[0:board_dims[0], 0:board_dims[1]].T.reshape(-1, 2)
 
 # Extracting the path of the images
-images = glob.glob('../CarlCam720pHD/*.png')
+images = glob.glob('C:/Users/<USER>/<PATH e.g. OneDrive/Pictures/Camera Roll/CarlCam720pHD>/*')
 
 for file_name in images:
     image = cv2.imread(file_name)

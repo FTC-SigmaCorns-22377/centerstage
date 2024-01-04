@@ -9,7 +9,7 @@ The following articles detail the purpose and theory and camera calibration:
 1. Print out 'Chessboard.png' and press it onto a movable hard surface (e.g. book, clipboard).
 2. Take various pictures of the chessboard at different angles with your camera and specified resolution.
    You should take at least 5, and the more the merrier (see SigmaCamA1080p, which has 22).
-3. Upload the pictures to an appropriately titled folder (e.g. 'CarlCam720p').
+3. Move the pictures to an appropriately titled folder (e.g. 'CarlCam720p').
 4. Appropriately modify line 18 of 'Calibrate.py' and run the program.
 5. (Optional) Appropriately modify lines 5 to 7 and 10 to 11 of 'FieldofView.py' and run it.
 6. Substitute all necessary values (likely cam_matrix and dist_coeffs only) into your program.
