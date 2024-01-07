@@ -54,8 +54,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this OpMode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Robot: Auto Drive By Time", group="Robot")
-public class BlueAuto extends LinearOpMode {
+@Autonomous(name="Robot: vistest", group="Robot")
+public class VisAuto extends LinearOpMode {
 
     private DcMotorEx FR, FL, BL, BR;
 
@@ -107,7 +107,7 @@ public class BlueAuto extends LinearOpMode {
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 15)) {
+        while (opModeIsActive() && (runtime.seconds() < 2)) {
             telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
@@ -120,7 +120,18 @@ public class BlueAuto extends LinearOpMode {
         BL.setPower(-FORWARD_SPEED);
 
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 7.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.6)) {
+            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        FR.setPower(FORWARD_SPEED);
+        BR.setPower(FORWARD_SPEED);
+        FL.setPower(FORWARD_SPEED);
+        BL.setPower(FORWARD_SPEED);
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.6)) {
             telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }

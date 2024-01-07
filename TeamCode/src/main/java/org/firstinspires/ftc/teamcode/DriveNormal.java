@@ -92,11 +92,7 @@ public class DriveNormal extends LinearOpMode {
         IntakeDropRight.setPosition(1-INTAKE_DROP_POSITION_DOWN);
 
         Linkage.setPosition(LINKAGE_INTAKE);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
+        sleep(1000);
         Transfer.setPosition(TRANSFER_DOWN);
 
 
@@ -124,24 +120,16 @@ public class DriveNormal extends LinearOpMode {
 
                 } else {
                     Transfer.setPosition(TRANSFER_DOWN);
-                    Thread.sleep(500);
+                    sleep(500);
                     Linkage.setPosition(LINKAGE_INTAKE);
-                    Thread.sleep(500);
+                    sleep(500);
                     IntakeDropLeft.setPosition(INTAKE_DROP_POSITION_DOWN);
                     IntakeDropRight.setPosition(1 - INTAKE_DROP_POSITION_DOWN);
                 }
             }
 
             wasAPressedLast = gamepad1.a;
-
-
-//            if (gamepad1.b && !wasBPressedLast) {
-//                isIntakeUp = !isIntakeUp;
-//                IntakeDropRightropLeft.setPosition(isTransferUp? INTAKE_DROP_POSITION_UP : INTAKE_DROP_POSITION_DOWN);
-//                IntakeDropRight.setPosition(isTransferUp ? 1 - INTAKE_DROP_POSITION_UP : 1 - INTAKE_DROP_POSITION_DOWN);
-//            }
-//            wasBPressedLast = gamepad1.b;
-
+            
             if (gamepad1.right_trigger > 0.1) {
                 Intake.setPower(-INTAKE_POWER);
             } else if (gamepad1.left_trigger > 0.1) {
