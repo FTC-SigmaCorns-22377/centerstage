@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.CommandFramework.CommandScheduler;
 import org.firstinspires.ftc.teamcode.Utils.Team;
+import org.firstinspires.ftc.teamcode.Utils.Side;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class Robot {
     protected CommandScheduler scheduler;
     ArrayList<LynxModule> modules = new ArrayList<>();
 
-    public Robot(HardwareMap hwMap, OpMode opMode, Gamepad gamepad1, Gamepad gamepad2, Team team) {
+    public Robot(HardwareMap hwMap, OpMode opMode, Gamepad gamepad1, Gamepad gamepad2, Team team, Side side) {
         scheduler = new CommandScheduler(hwMap, drivetrain, dashboard);
         this.gamepad1 = new Input(gamepad1, scheduler);
         this.gamepad2 = new Input(gamepad2, scheduler);

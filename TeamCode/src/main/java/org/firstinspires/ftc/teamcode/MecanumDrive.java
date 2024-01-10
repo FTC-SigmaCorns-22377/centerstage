@@ -40,10 +40,10 @@ import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.teamcode.messages.DriveCommandMessage;
-import org.firstinspires.ftc.teamcode.messages.MecanumCommandMessage;
-import org.firstinspires.ftc.teamcode.messages.MecanumEncodersMessage;
-import org.firstinspires.ftc.teamcode.messages.PoseMessage;
+import org.firstinspires.ftc.teamcode.Messages.DriveCommandMessage;
+import org.firstinspires.ftc.teamcode.Messages.MecanumCommandMessage;
+import org.firstinspires.ftc.teamcode.Messages.MecanumEncodersMessage;
+import org.firstinspires.ftc.teamcode.Messages.PoseMessage;
 
 import java.lang.Math;
 import java.util.Arrays;
