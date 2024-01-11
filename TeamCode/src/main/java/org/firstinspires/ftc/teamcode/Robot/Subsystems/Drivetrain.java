@@ -14,8 +14,6 @@ import java.util.List;
 public class Drivetrain extends Subsystem {
 	protected HardwareMap hwMap;
 	public MecanumDrive drive;
-	protected List<Action> runningActions = new ArrayList<>();
-
 
 	@Override
 	public void initAuto(HardwareMap hwMap) {
@@ -25,15 +23,6 @@ public class Drivetrain extends Subsystem {
 
 	@Override
 	public void periodic() {
-		TelemetryPacket packet = new TelemetryPacket();
-		List<Action> newActions = new ArrayList<>();
-		for (Action action : runningActions) {
-			action.preview(packet.fieldOverlay());
-			if (action.run(packet)) {
-				newActions.add(action);
-			}
-		}
-		runningActions = newActions;
 	}
 
 
@@ -46,13 +35,6 @@ public class Drivetrain extends Subsystem {
 		drive.rightBack.setPower(0);
 	}
 
-
-
-	public void runAction(Action action) {
-		runningActions.add(
-				action
-		);
-	}
 
 
 }

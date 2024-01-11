@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Robot.Commands.DrivetrainCommands;
 
+import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.acmerobotics.roadrunner.Action;
 
 import org.firstinspires.ftc.teamcode.CommandFramework.Command;
@@ -7,27 +8,26 @@ import org.firstinspires.ftc.teamcode.Robot.Subsystems.Drivetrain;
 
 public class RunDrivetrainAction extends Command {
 
-    protected final Drivetrain drivetrain;
     protected final Action action;
+    private boolean done;
 
-    public RunDrivetrainAction(Drivetrain drivetrain, Action action) {
-        this.drivetrain = drivetrain;
+    public RunDrivetrainAction(Action action) {
         this.action = action;
     }
     @Override
     public void init() {
-        drivetrain.runAction(action);
-
     }
 
     @Override
     public void periodic() {
+        TelemetryPacket packet = new TelemetryPacket();
+        done = !action.run(packet);
 
     }
 
     @Override
     public boolean completed() {
-        return false;
+        return done;
     }
 
     @Override
