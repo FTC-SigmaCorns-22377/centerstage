@@ -178,6 +178,8 @@ public class PerseveranceAuto extends BaseAuto {
                                                 .build()
                                 );
                         }
+                    case BACK:
+                        break;
                 }
             case RED:
                 startY *= -1;

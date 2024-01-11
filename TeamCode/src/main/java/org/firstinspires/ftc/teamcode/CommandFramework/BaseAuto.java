@@ -15,7 +15,7 @@ public abstract class BaseAuto extends LinearOpMode {
 
     protected Robot robot;
 
-    protected String randomization = "LEFT"; // CALL
+        protected String randomization = "LEFT"; // CALL
 
     @Override
     public void runOpMode() {
