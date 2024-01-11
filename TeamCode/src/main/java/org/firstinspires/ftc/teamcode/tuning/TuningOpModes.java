@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Tuning;
+package org.firstinspires.ftc.teamcode.tuning;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.reflection.ReflectionConfig;

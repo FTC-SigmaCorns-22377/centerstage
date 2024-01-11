@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Tuning;
+package org.firstinspires.ftc.teamcode.tuning;
 
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.PoseVelocity2d;
@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.TankDrive;
 public class LocalizationTest extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
-        if (org.firstinspires.ftc.teamcode.Tuning.TuningOpModes.DRIVE_CLASS.equals(MecanumDrive.class)) {
+        if (TuningOpModes.DRIVE_CLASS.equals(MecanumDrive.class)) {
             MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0, 0, 0));
 
             waitForStart();
@@ -33,7 +33,7 @@ public class LocalizationTest extends LinearOpMode {
                 telemetry.addData("heading (deg)", Math.toDegrees(drive.pose.heading.toDouble()));
                 telemetry.update();
             }
-        } else if (org.firstinspires.ftc.teamcode.Tuning.TuningOpModes.DRIVE_CLASS.equals(TankDrive.class)) {
+        } else if (TuningOpModes.DRIVE_CLASS.equals(TankDrive.class)) {
             TankDrive drive = new TankDrive(hardwareMap, new Pose2d(0, 0, 0));
 
             waitForStart();
