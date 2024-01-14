@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.PIDCoefficients;
 
+import org.firstinspires.ftc.teamcode.CommandFramework.Subsystem;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
 import java.util.ArrayList;
@@ -20,24 +21,38 @@ class MotionConstraint {
         this.maxVelocity = maxVelocity;
         this.maxAcceleration = maxAcceleration;
         this.maxJerk = maxJerk;
-        state = hang.MechanismStates;
-        Dashboard.MechanismStates state = MechanismStates;
+
+
 
     }
-public static class hang  {
-    public static final Dashboard.MechanismStates state = null;
+public static class hang  extends Subsystem {
+
 
     static {
 
         ///state = new MechanismStates[];
     }
 
-    public static Dashboard.MechanismStates MechanismStates;
+    @Override
+    public void initAuto(HardwareMap hwMap) {
+
+    }
+
+    @Override
+    public void periodic() {
+
+    }
+
+    @Override
+    public void shutdown() {
+
+    }
+
 
     private static class MechanismStates {
     }
 }
-    protected static Dashboard.MechanismStates MechanismStates;
+
     private enum MechanismStates {
         BEGIN,
         /* Add other states as needed */
@@ -58,7 +73,7 @@ public static class hang  {
     }
 
     protected double targetPosition = 0.0;
-    protected Dashboard.MechanismStates state;
+
     protected HardwareMap hwMap;
     public MecanumDrive drive;
     protected List<Action> runningActions = new ArrayList<>();
