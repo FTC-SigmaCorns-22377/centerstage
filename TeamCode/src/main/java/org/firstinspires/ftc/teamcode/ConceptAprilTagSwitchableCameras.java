@@ -255,20 +255,32 @@ public class ConceptAprilTagSwitchableCameras extends LinearOpMode implements Lo
     }   // end method telemetryAprilTag()
 
     //TODO: Use kalman filter to combine drive encoder estimates with aprilTag estimates
+
+    /**
+     * use rotation matrix to find x and y coordinates from aprilTag readings
+     * @param range
+     * @param bearing
+     * @param yaw
+     * @param x
+     * @param y
+     */
     private void findGlobalPosition(Double range, Double bearing, Double yaw, Double x, Double y) {
+        //create 2x2 rotation matrix for camera's x and y to align with aprilTags x and y
         Mat rotationMatrix = new Mat(2, 2,CvType.CV_64F, new Scalar(0));
         rotationMatrix.put(0, 0, Math.cos(yaw));
         rotationMatrix.put(0, 1, Math.sin(yaw));
-
         rotationMatrix.put(1, 0, -Math.sin(yaw));
         rotationMatrix.put(1, 1, Math.cos(yaw));
 
+        //matrix with x and y with respect to camera's perspective
         Mat position = new Mat(2, 1,CvType.CV_64F, new Scalar(0));
         rotationMatrix.put(0, 0, x);
         rotationMatrix.put(1, 0, y);
 
+        //matrix multiplication
         Core.gemm(rotationMatrix, position,1, new Mat(), 0, new Mat(), 0);
 
+        //fuse imu position estimates with aprilTag's
         KalmanFilter kalmanFilter = new KalmanFilter(1,1,1);
         kalmanFilter.estimate();
 
